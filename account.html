@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./account.css">
+    <link rel="shortcut icon" href="./popcorn.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="container-logo">
+            <a href="index.html"><img src="./popcorn.png" alt="CineMatch" class="logo">
+            </a>
+            <h2 id="textlogo">
+                <span style="color: #dc041c">C</span><span>I</span><span>N</span><span>E</span><span style="color: #dc041c">M</span><span>A</span><span>T</span><span>C</span><span>H</span>
+            </h2>
+        </div>
+        <div class="container-links">
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="index.html">Filmes</a></li>
+                    <li><a href="">Recomendações</a></li>
+                    <li><a href="">↑ Match ↑</a></li>
+                    <li class="btn-login"><a href="./login.html">Login</a></li>
+                    <li><a href="">Configurações</a></li>
+                </ul>
+            </nav>
+            </div>
+            <div class="container-perfil">
+                <div class="icon-perfil">
+                    <a href="index.html">
+                        <img onmouseenter="showOutMenu()" src="./perfil.png" alt="" class="perfil" id="perfil">
+                    </a>
+                    </div>
+                <div class="menu-perfil"  onmouseleave="removeMenu()">
+                    <a href="./login.html" class="out">Sair</a>
+                </div>
+            </div>
+            <div class="burger" id="burger-menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            
+            <div class="menu-hide">
+                <ul class="hide-li">
+                    <li><a href="index.html">Filmes</a></li>
+                    <li><a href="">Recomendações</a></li>
+                    <li><a href="">↑ Match ↑</a></li>
+                    <li class="btn-login"><a href="./login.html">Login</a></li>
+                    <li><a href="">Configurações</a></li>
+                    <li class="out">Sair</li>
+                </ul>
+              </div>
+        </header>
+
+        <section class="main-perfil d-flex justify-content-center row">
+            <div class="icon col-4 center">
+                <img src="" alt="" id="perfil-image">    
+            </div>
+            <div class="info col-8 d-flex align-items-center justify-content-center flex-column">
+                <div class="user-top center justify-content-between">
+                    <h2 id="name" class="fs-4 center"></h2>
+                    <a href="#" class="instagram-button">
+                        <span class="texto">Editar Perfil</span>
+                    </a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                        <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                        <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                      </svg>
+                      
+                </div>
+                <div class="user-bottom align-items-center d-flex">
+                    <p class="text-start">Categorias:</p>
+                </div>
+            </div>
+        </section>
+        <div class="liked">
+            <h2 class="m-5">Meus filmes</h2>
+            <div id="res">
+                
+            </div>
+        </div>
+   
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    
+    <script type="module">
+        let perfil_image = document.getElementById('perfil-image')
+        let imgUrl = localStorage.getItem('UserImg')
+        let icon = document.getElementById('perfil')
+        let out = document.querySelectorAll('.out')
+        let nome = document.getElementById('name')
+        let username = localStorage.getItem('User')
+        if(localStorage.length == 0){
+            icon.src='./perfil.png'
+            out.forEach(element => {
+                element.style.display='none';
+            })
+        }
+        if(localStorage.length != 0){
+            icon.src=imgUrl;
+            perfil_image.src=imgUrl;
+            nome.innerHTML=username
+            icon.classList.toggle('logged');
+            out.forEach(element => {
+                element.style.display='flex';
+            })
+        }
+        out.forEach(element => {
+            element.addEventListener('click', function(){
+            localStorage.clear()
+            out.style.display='none';
+            window.location.href='http://127.0.0.   1:5500/./login.html'
+            })
+        })
+            
+        if(localStorage.length!=0){
+            let btns = document.querySelectorAll('.btn-login')
+            btns.forEach(element => {
+                element.style.display='none'
+            });   
+        }
+        let res = document.getElementById('res')
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyDpQcKbYfP6PWYo4186zfLKP9vlfZjC5YE",
+          authDomain: "cinematch-3e757.firebaseapp.com",
+          projectId: "cinematch-3e757",
+          storageBucket: "cinematch-3e757.appspot.com",
+          messagingSenderId: "372273255417",
+          appId: "1:372273255417:web:aea0cdab837d2baaf5e328",
+          measurementId: "G-JELQB2MP41"
+        };
+        
+        firebase.initializeApp(firebaseConfig);
+         // Referência para o Firestore
+        var db = firebase.firestore();
+        let list = []
+        // Aguardar a inicialização do aplicativo Firebase
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // Aqui você pode acessar as funcionalidades do Firestore
+                var filmesRef = db.collection('filmes');
+                filmesRef.get()
+                    .then((querySnapshot) => {
+                        querySnapshot.forEach((doc) => {
+                            console.log(doc.id, ' => ', doc.data());
+                            res.innerHTML=doc.data().sort().nome
+                        });
+                        
+                    })
+                    .catch((error) => {
+                        console.error('Erro ao recuperar documentos da coleção "filmes":', error);
+                    });
+            } else {
+                // Usuário não autenticado
+                console.log('Usuário não autenticado');
+            }
+        });
+        
+        </script>
+</body>
+</html>
