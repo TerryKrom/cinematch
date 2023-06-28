@@ -13,10 +13,11 @@
     <script defer>
         const userTest = () => {
             testAnimation()
-            if(localStorage.length != 0){
+            if(localStorage.getItem('User')){
+                console.log('logado')
             let name = localStorage.getItem('User')
             document.getElementById('load-text').innerHTML=`Bem vindo de volta, ${name}`
-        }
+            }
         }
     </script>
 <body>
@@ -53,7 +54,7 @@
                         </a>
                         </div>
                     <div class="menu-perfil"  onmouseleave="removeMenu()">
-                        <a href="account.html">Minha Conta</a>
+                        <a id="myaccount" href="account.html">Minha Conta</a>
                         <a href="./login.html" class="out">Sair</a>
                     </div>
                 </div>
@@ -139,13 +140,16 @@
             let icon = document.getElementById('perfil')
             let out = document.querySelectorAll('.out')
             
-            if(localStorage.length == 0){
+            if(!localStorage.getItem('User')){
                 icon.src='./perfil.png'
                 out.forEach(element => {
                     element.style.display='none';
                 })
+                let btn_a = document.getElementById('myaccount')
+                btn_a.innerHTML='Login'
+                btn_a.href='./login.html'
             }
-            if(localStorage.length != 0){
+            if(localStorage.getItem('User')){
                 icon.src=imgUrl
                 icon.classList.toggle('logged');
                 out.forEach(element => {
@@ -199,7 +203,7 @@
                 title.forEach((item, index) => {
                     title_obj[index] = item
                 })
-                console.log(title_obj)
+                //console.log(title_obj)
             heart.forEach(element => {
             element.addEventListener("click", function(){
                 let id = element.getAttribute('id')
