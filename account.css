@@ -1,16 +1,9 @@
-.icon{
-
-}
-/* 
-.info, .user-bottom, .user-to, svg{
-    border: 1px solid #fff;
-} */
-
 .main-perfil{
     border: 1px solid #d3d3d3;
     margin: 20px 40px !important;
     height: 250px;
     border-radius: 10px;
+    display: none !important;
 }
 
 #perfil-image{
@@ -93,4 +86,12 @@
 .user-top svg:hover{
     transform: rotate(30deg);
     scale: 1.1;
+}
+#res{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 50%;
+    border-radius: 25px;
 }
