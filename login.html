@@ -70,7 +70,24 @@
                  .then((result) => {
                      // Login bem-sucedido, redirecionar para página de sucesso ou realizar outras ações
                      console.log("Login com Google realizado com sucesso:", result.user);
-                 })
+                     localStorage.setItem('User', result.user.displayName)
+                     localStorage.setItem('UserImg', result.user.photoURL)
+                     let email = result.user.email
+                     let password = result.user.password
+                     console.log(result)
+                     console.log(email, password)
+                     addDoc(collection(db, "usuarios"), {
+                      email: email
+                  })
+                  .then((docRef) => {
+                      console.log("Dados inseridos com sucesso no Firestore. ID do documento:", docRef.id);
+                      window.location.href='./index.html'
+                  })
+                  .catch((error) => {
+                      console.error("Erro ao inserir dados no Firestore:", error);
+                  });
+                    window.location.href='./index.html'
+                    })
                  .catch((error) => {
                      // Tratar erros de login
                      console.log("Erro no login com Google:", error);
@@ -96,7 +113,7 @@
             })
             .then((docRef) => {
                 console.log("Dados inseridos com sucesso no Firestore. ID do documento:", docRef.id);
-                window.location.href='../../index.html'
+                window.location.href='./index.html'
             })
             .catch((error) => {
                 console.error("Erro ao inserir dados no Firestore:", error);
@@ -107,8 +124,8 @@
      <script>
       const accountCheck = () => {
         console.log(localStorage.length)
-        if(localStorage.length != 0){
-          window.location.href='http:terrykrom.github.io/cinematch/login.html'
+        if(localStorage.getItem('User')){
+          window.location.href='http://127.0.0.1:5500/index.html'
         }
       }
      </script>
