@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
 *{
-    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Outfit', sans-serif;
     transition: 0.2s linear;
+    border: 1px solid #fff;
 }
 .center{
   display: flex;
@@ -19,7 +19,7 @@
 body{
     background-color: #101010 !important;
     color: #fff !important;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 @keyframes opening{
   0%{
@@ -211,10 +211,34 @@ header{
     .animation h2{
       font-size: 1.5rem;
     }
+    .text h1{
+      font-size: 1.4rem !important;
+    }
+    span{
+      font-size: 1rem;
+    }
+    .search-bar{
+      margin: 0 !important;
+    }
+    .search-inputs{
+      display: flex !important;
+      width: 100% !important;
+      justify-content: center !important;
+      margin: 0 auto !important;
+    }
+}
+@media (max-width: 500px) {
+  .card {
+      width: 100%;
+  }
+}
+#movie-list, #movie-search{
+  margin: 0 !important;
 }
 
-  
-#burger-menu.open div:first-child {
+
+
+  #burger-menu.open div:first-child {
     transform: translateY(10px) rotate(45deg);
   }
   
@@ -238,7 +262,7 @@ header{
     right: 0;
     background-color: #252525;
     margin-top: 345px;
-    z-index: 1;
+    z-index: 90;
     animation: surgirC 0.5s ease forwards;
   }
   .menu-hide ul{
@@ -474,43 +498,9 @@ header{
 }
 
 #textlogo span{
-    font-size: 1.4rem;
     display: inline-block;
-    /**animation: letter-up 1.5s infinite;*/
+    font-size: 1.4rem;
 }
-  
-#textlogo span:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-#textlogo span:nth-child(2) {
-    animation-delay: 0.2s;
-}
-#textlogo span:nth-child(3) {
-    animation-delay: 0.3s;
-  }
-  #textlogo span:nth-child(4) {
-    animation-delay: 0.4s;
-  }
-  #textlogo span:nth-child(5) {
-    animation-delay: 0.5s;
-  }
-  #textlogo span:nth-child(6) {
-    animation-delay: 0.6s;
-  }
-  #textlogo span:nth-child(7) {
-    animation-delay: 0.7s;
-  }
-  #textlogo span:nth-child(8) {
-    animation-delay: 0.8s;
-  }
-  #textlogo span:nth-child(9) {
-    animation-delay: 0.9s;
-  }
-  #textlogo span:nth-child(10) {
-    animation-delay: 1s;
-  }
-
-  /*====================================*/
 
 .cards-container {
   display: flex;
@@ -527,7 +517,7 @@ header{
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   border:  1px solid #e6c405;
   height: 400px !important;
-  animation: surgirB 0.3s linear; 
+  animation: surgirB 0.3s linear;
 }
 
 .card img {
@@ -578,6 +568,7 @@ header{
   align-items: center;
   margin: 20px auto;
   justify-content: space-between;
+  width: 100%;
 }
 
 .search-bar input{
