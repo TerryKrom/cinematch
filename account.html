@@ -58,7 +58,7 @@
               </div>
         </header>
 
-        <section class="main-perfil d-flex justify-content-center row">
+        <section class="main-perfil justify-content-center row">
             <div class="icon col-4 center">
                 <img src="" alt="" id="perfil-image">    
             </div>
@@ -80,16 +80,16 @@
             </div>
         </section>
         <div class="liked">
-            <h2 class="m-5">Meus filmes</h2>
-            <div id="res">
-                
+            <h2 class="m-5"></h2>
+            <div id="res" class="m-auto">
+                <img src="trabalho-em-progresso.png" width="200" alt="ferramentas">
             </div>
         </div>
-   
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    
+        <script src="menu.js"></script>
+
     <script type="module">
         let perfil_image = document.getElementById('perfil-image')
         let imgUrl = localStorage.getItem('UserImg')
