@@ -629,6 +629,9 @@ footer .center{
 footer a:hover{
   opacity: 0.8;
 }
+footer p{
+  border-top: 1px solid #151515 !important;
+}
 .card-title{
   display: flex;
   justify-content: space-between;
