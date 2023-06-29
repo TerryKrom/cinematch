@@ -49,7 +49,7 @@
                 </div>
                 <div class="container-perfil">
                     <div class="icon-perfil">
-                        <a href="./login.html">
+                        <a id="a-perfil" href="./login.html">
                         <img onmouseenter="showOutMenu()" src="./perfil.png" alt="" class="perfil" id="perfil">
                         </a>
                         </div>
@@ -139,7 +139,7 @@
             let imgUrl = localStorage.getItem('UserImg')
             let icon = document.getElementById('perfil')
             let out = document.querySelectorAll('.out')
-            
+            let a = document.getElementById('a-perfil')
             if(!localStorage.getItem('User')){
                 icon.src='./perfil.png'
                 out.forEach(element => {
@@ -147,11 +147,12 @@
                 })
                 let btn_a = document.getElementById('myaccount')
                 btn_a.innerHTML='Login'
-                btn_a.href='login.html'
+                btn_a.href='./login.html'
             }
             if(localStorage.getItem('User')){
                 icon.src=imgUrl
                 icon.classList.toggle('logged');
+                a.href='account.html'
                 out.forEach(element => {
                     element.style.display='flex';
                 })
@@ -203,7 +204,6 @@
                 title.forEach((item, index) => {
                     title_obj[index] = item
                 })
-                //console.log(title_obj)
             heart.forEach(element => {
             element.addEventListener("click", function(){
                 let id = element.getAttribute('id')
@@ -218,7 +218,6 @@
                     likedMovies.push(text_title[0])
                     addLikedMovieToFirestore(likedMovies)
                 }
-                console.log(likedMovies)
                 })
             })
               
