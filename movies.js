@@ -54,9 +54,6 @@ showMovies('Fast And Furious', cardsContainer, 2)
 showMovies('Creed III', cardsContainer, 1);
 showMovies('Rocky IV', cardsContainer, 1)
 showMovies('Thor', cardsContainer, 2)
-
-let menu = document.querySelector('.menu-perfil')
-  
 const showOutMenu = () => {
   if(localStorage.length != 0){
     menu.style.opacity=1;
