@@ -407,7 +407,7 @@ header{
     animation:
       escrever 3s steps(40, end),
       piscar-cursor .75s step-end infinite;
-      animation-delay: 4.5s;
+      /*animation-delay: 4.5s;*/
 }
 
 .text h2{
