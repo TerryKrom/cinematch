@@ -83,9 +83,6 @@ const randMovie = (arr) => {
   return arr[randomIndex];
 };
 
-console.log(randMovie(mTitlesP));
-console.log(randMovie(mTitlesS));
-
 showMovies(randMovie(mTitlesP), cardsContainer, 2);
 showMovies(randMovie(mTitlesP), cardsContainer, 2);
 showMovies(randMovie(mTitlesP), cardsContainer, 2)
