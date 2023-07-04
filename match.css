@@ -1,58 +1,76 @@
-#loading {
+.genre-list{
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    width: 200px;
-    height: 200px;
+    justify-content: space-around;
+    margin: 0px 20px 0px 20px;
 }
-  
-#content.hidden {
-    display: none;
+
+.genre, .age{
+    height: max-content !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    border: 2px solid #101010;
+    margin: 10px 20px 10px 20px;
+    width: 15%;
+}
+@media screen and (max-width: 850px){
+    .genre,.age{
+        margin: 0;
+    }
+}
+.selected{
+    border-color: #e6051f;
+}
+/* 
+.genre-list .selected:nth-child(2) svg{
+    fill: #f376de;
+} */
+
+.genre svg{
+    margin: 30px;
+}
+.genre h2{
+    font-size: 20px;
+}
+
+.genre:hover{
+    background-color: #202020 !important;
+}
+.btn-next{
+    cursor: pointer;
+    width: 150px;
+    height: 56px;
+    padding: 0 16px;
+    border-radius: 0.5rem;
+    background: #e6051f;
+    color: #f9f9f9;
+    border: 0;
+    font-family: inherit;
+    font-size: 1rem;
+    text-align: center;
+    letter-spacing: 2px;
+    transition: all 0.375s;
+    margin-top: 20px;
+}
+
+@keyframes disapear {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0 !important;
+    }
+}
+
+.hidden{
+    animation: disapear 0.3s linear;
     opacity: 0;
 }
-.pulse {
-    margin:100px;
-    display: block;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #151515;
-    cursor: pointer;
-    box-shadow: 0 0 0 rgba(204,169,44, 0.4);
-    animation: pulse 1.5s infinite;
-  }
-  .pulse:hover {
-    animation: none;
-  }
-  
-  @-webkit-keyframes pulse {
-    0% {
-      -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
-    }
-    70% {
-        -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
-    }
-    100% {
-        -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
-    }
-  }
-  @keyframes pulse {
-    0% {
-      -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
-      box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
-    }
-    70% {
-        -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
-        box-shadow: 0 0 0 10px rgba(204,169,44, 0);
-    }
-    100% {
-        -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
-        box-shadow: 0 0 0 0 rgba(204,169,44, 0);
-    }
-  }
+
+.age{
+    font-size: 26px;
+    padding: 50px 0px 50px 0px;
+}
