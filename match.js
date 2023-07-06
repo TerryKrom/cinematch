@@ -284,8 +284,6 @@ const verifyGenre = (g) => {
 
     return movie;
   }
-
-  return null;
 }
 
 
