@@ -215,7 +215,7 @@ const matchMovies = (query, space, qtd) => {
     space.appendChild(section);
   }
   
-  fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}&type=movie&plot=full&page=1`)
+  fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${query}&type=movie&plot=full&page=1`)
     .then(response => response.json())
     .then(data => {
       if (Array.isArray(data.Search)) {
