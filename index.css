@@ -455,11 +455,11 @@ header{
 @keyframes surgirC {
   from {
     opacity: 0; /* Começa com uma opacidade de 0 */
-    transform: translateY(-50px); /* Começa 50px acima da posição original */
+    transform: translateX(50px); /* Começa 50px acima da posição original */
   }
   to {
     opacity: 1; /* Termina com uma opacidade de 1 */
-    transform: translateY(0px); /* Termina na posição original, sem deslocamento vertical */
+    transform: translateX(0px); /* Termina na posição original, sem deslocamento vertical */
   }
 
 }
