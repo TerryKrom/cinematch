@@ -86,9 +86,9 @@
             </div>
         </section>
         <div class="liked">
-            <h2 class="m-5"></h2>
+            <h2 class="m-5" id="username">Olá </h2>
             <div id="res" class="m-auto">
-                <img src="trabalho-em-progresso.png" width="200" alt="ferramentas">
+                
             </div>
         </div>
     </div>
@@ -100,32 +100,24 @@
     <script type="module">
         let perfil_image = document.getElementById('perfil-image')
         let imgUrl = localStorage.getItem('UserImg')
-        let icon = document.getElementById('perfil')
-        let out = document.querySelectorAll('.out')
         let nome = document.getElementById('name')
+        let usernameLabel = document.getElementById('username')
         let username = localStorage.getItem('User')
+        usernameLabel.innerHTML+=username
         if(localStorage.length == 0){
             icon.src='./perfil.png'
             out.forEach(element => {
                 element.style.display='none';
             })
         }
-        if(localStorage.length != 0){
-            icon.src=imgUrl;
-            perfil_image.src=imgUrl;
-            nome.innerHTML=username
-            icon.classList.toggle('logged');
-            out.forEach(element => {
-                element.style.display='flex';
-            })
-        }
         out.forEach(element => {
             element.addEventListener('click', function(){
             localStorage.clear()
             out.style.display='none';
-            window.location.href='http://127.0.0.   1:5500/./login.html'
+            window.location.href='login.html'
             })
         })
+
             
         if(localStorage.length!=0){
             let btns = document.querySelectorAll('.btn-login')
@@ -148,6 +140,7 @@
         firebase.initializeApp(firebaseConfig);
          // Referência para o Firestore
         var db = firebase.firestore();
+        let result = []
         let list = []
         // Aguardar a inicialização do aplicativo Firebase
         firebase.auth().onAuthStateChanged(function(user) {
@@ -157,8 +150,8 @@
                 filmesRef.get()
                     .then((querySnapshot) => {
                         querySnapshot.forEach((doc) => {
-                            console.log(doc.id, ' => ', doc.data());
-                            res.innerHTML=doc.data().sort().nome
+                            result=doc.data().nome
+                            console.log(result)
                         });
                         
                     })
@@ -171,5 +164,6 @@
             }
         });
         </script>
+        
 </body>
 </html>
