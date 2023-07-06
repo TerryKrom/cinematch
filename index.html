@@ -163,7 +163,7 @@ const logout = () => {
     });
 };
 
-            if(localStorage.getItem('User') && localStorage.getItem('foto') == false){
+            if(localStorage.getItem('User') != null && localStorage.getItem('foto') == false){
               icon.src='perfil.png'
               icon.classList.toggle('logged');
                 a.href='account.html'
