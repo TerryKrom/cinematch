@@ -6,6 +6,7 @@ const menu = document.querySelector('.menu-perfil')
 const showOutMenu = () => {
   if(localStorage.length != 0){
     menu.style.opacity=1;
+    menu.style.zIndex=2
     menuHide.classList.remove('open')
     navLinks.classList.remove('open');
     burgerMenu.classList.remove('open');
@@ -13,6 +14,7 @@ const showOutMenu = () => {
 }
 const removeMenu = () => {
   menu.style.opacity=0;
+  menu.style.zIndex=0
 }
 
 burgerMenu.addEventListener('click', () => {
