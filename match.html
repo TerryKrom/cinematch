@@ -254,19 +254,11 @@
                 btn_a.innerHTML='Login'
                 btn_a.href='./login.html'
             }
-            if(localStorage.getItem('User')){
-                icon.src=imgUrl
-                icon.classList.toggle('logged');
-                a.href='account.html'
-                out.forEach(element => {
-                    element.style.display='flex';
-                })
-            }
             out.forEach(element => {
                 element.addEventListener('click', function(){
                 localStorage.clear()
                 out.style.display='none';
-                window.location.href='http://127.0.0.   1:5500/./login.html'
+                window.location.href='login.html'
                 })
             })
                 
