@@ -30,7 +30,7 @@
             <div class="container-links">
                 <nav class="nav-links">
                     <ul>
-                        <li><a href="index.html">Filmes</a></li>
+                        <li><a href="index.html" class="current">Filmes</a></li>
                         <li><a href="">Recomendações</a></li>
                         <li><a href="match.html">Match</a></li>
                         <li class="btn-login"><a href="./login.html">Login</a></li>
@@ -62,8 +62,7 @@
                         <li><a href="match.html">Match</a></li>
                         <li class="btn-login"><a href="./login.html">Login</a></li>
                         <li><a href="">Configurações</a></li>
-                        <li class="out">Sair</li>
-                    </ul>
+                        </ul>
                   </div>
     
             </header>
@@ -109,9 +108,9 @@
                 <a href="#">Configurações</a>
             </div>
             <div class="m-3 col-3 center flex-column">
-                <h3>Entretenimento</h3>
+                <h3>Diversão</h3>
                 <div class="linha"></div>
-                <a href="#">Filmes</a>
+                <a href="#">Meus Filmes</a>
                 <a href="#">Recomendações</a>
                 <a href="#">Match</a>
             </div>
@@ -135,19 +134,38 @@
             let imgUrl = localStorage.getItem('UserImg')
             let icon = document.getElementById('perfil')
             let out = document.querySelectorAll('.out')
-            let a = document.getElementById('a-perfil')
-            if(!localStorage.getItem('User')){
-                icon.src='./perfil.png'
-                out.forEach(element => {
-                    element.style.display='none';
-                })
-                let btn_a = document.getElementById('myaccount')
-                btn_a.innerHTML='Login'
-                btn_a.href='login.html'
-            }
-            if(localStorage.getItem('User')){
-                icon.src=imgUrl
-                icon.classList.toggle('logged');
+            // if(!localStorage.getItem('User')){
+            //     icon.src='perfil.png'
+            //     out.forEach(element => {
+            //         element.style.display='none';
+            //     })
+            //     let btn_a = document.getElementById('myaccount')
+            //     btn_a.innerHTML='Login'
+            //     btn_a.href='login.html'
+            // }
+            // if(localStorage.getItem('User')){
+            //     icon.src=imgUrl
+            //     icon.classList.toggle('logged');
+            //     a.href='account.html'
+            //     out.forEach(element => {
+            //         element.style.display='flex';
+            //     })
+            // }
+const logout = () => {
+  auth.signOut()
+    .then(() => {
+      console.log("Logout realizado com sucesso.");
+      // Redirecione para a página de login ou para outra página desejada
+      window.location.href = "/login.html";
+    })
+    .catch((error) => {
+      console.error("Erro ao fazer logout:", error);
+    });
+};
+
+            if(localStorage.getItem('User') && localStorage.getItem('foto') == false){
+              icon.src='perfil.png'
+              icon.classList.toggle('logged');
                 a.href='account.html'
                 out.forEach(element => {
                     element.style.display='flex';
@@ -156,21 +174,16 @@
             out.forEach(element => {
                 element.addEventListener('click', function(){
                 localStorage.clear()
+                logout()
                 out.style.display='none';
                 window.location.href='login.html'
                 })
             })
-                
-            if(localStorage.length!=0){
-                let btns = document.querySelectorAll('.btn-login')
-                btns.forEach(element => {
-                    element.style.display='none'
-                });   
-            }
-
-// Importações do Firebase e do Firebase Authentication
+            
+// Importações do Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDoc, query, where, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 
 
 // Configurações do Firebase
@@ -188,52 +201,102 @@ const firebaseConfig = {
 // Inicialização do Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 
 
-         const likedMovies = []
-            setTimeout(function(){
-                const heart = document.querySelectorAll('.bi-heart-fill');
-                let title = document.querySelectorAll('.card-title')
-                const title_obj = {}
-                title.forEach((item, index) => {
-                    title_obj[index] = item
-                })
-            heart.forEach(element => {
-            element.addEventListener("click", function(){
-                let id = element.getAttribute('id')
-                if(element.classList == 'bi bi-heart-fill liked'){
-                    element.style.fill="#fff"
-                    element.classList.remove('liked')
-                    likedMovies.pop(title_obj[id])
-                }else{
-                    element.style.fill="#e6051f"
-                    element.classList.add('liked')
-                    let text_title = title_obj[id].textContent.split('\n', 1)
-                    likedMovies.push(text_title[0])
-                    addLikedMovieToFirestore(likedMovies)
-                }
-                })
-            })
-              
-        const addLikedMovieToFirestore = async (movieName) => {
-          try {
-            const querySnapshot = await getDocs(query(collection(db, "filmes"), where("nome", "==", movieName)));
-            if (querySnapshot.empty) {
-              // O filme não existe, então podemos adicioná-lo
-              await addDoc(collection(db, "filmes"), { nome: movieName });
-              console.log("Nome do filme curtido enviado para o Firestore com sucesso!");
-            } else {
-              // O filme já existe no Firestore
-              console.log("O filme já foi curtido anteriormente.");
-            }
-          } catch (error) {
-            console.error("Erro ao verificar/adicionar o filme no Firestore:", error);
+const likedMovies = [];
+
+setTimeout(function() {
+  const heart = document.querySelectorAll('.bi-heart-fill');
+  const title = document.querySelectorAll('.card-title');
+  const title_obj = {};
+
+  title.forEach((item, index) => {
+    title_obj[index] = item;
+  });
+
+  heart.forEach(element => {
+    element.addEventListener("click", async function() {
+      const id = element.getAttribute('id');
+      if (element.classList.contains('liked')) {
+        element.style.fill = "#fff";
+        element.classList.remove('liked');
+        likedMovies.pop(title_obj[id].textContent);
+        await removeLikedMovieFromFirestore(title_obj[id].textContent);
+      } else {
+        element.style.fill = "#e6051f";
+        element.classList.add('liked');
+        const text_title = title_obj[id].textContent.split('\n', 1);
+        likedMovies.push(text_title[0]);
+        console.log(likedMovies);
+        await addLikedMovieToFirestore(text_title[0]);
+      }
+    });
+  });
+}, 2000);
+
+const addLikedMovieToFirestore = async (movieName) => {
+  try {
+    const user = auth.currentUser;
+    console.log(user)
+    if (user) {
+      const userId = user.uid;
+      const userRef = doc(db, "usuarios", userId);
+      const userSnapshot = await getDoc(userRef);
+
+      if (userSnapshot.exists()) {
+        const filmesCurtidosRef = collection(userRef, "filmesCurtidos");
+        await addDoc(filmesCurtidosRef, { nome: movieName });
+        console.log("Nome do filme curtido enviado para o Firestore com sucesso!");
+      } else {
+        console.log("Usuário não encontrado.");
+      }
+    } else {
+      console.log("Usuário não autenticado.");
+    }
+  } catch (error) {
+    console.error("Erro ao verificar/adicionar o filme no Firestore:", error);
+  }
+};
+
+const removeLikedMovieFromFirestore = async (movieName) => {
+  try {
+    const user = auth.currentUser;
+    if (user) {
+      const userId = user.uid;
+      const userRef = doc(db, "usuarios", userId);
+      const userSnapshot = await getDoc(userRef);
+
+      if (userSnapshot.exists()) {
+        const filmesCurtidosRef = collection(userRef, "filmesCurtidos");
+        const querySnapshot = await getDocs(query(filmesCurtidosRef, where("nome", "==", movieName)));
+
+        if (!querySnapshot.empty) {
+          querySnapshot.forEach(async (doc) => {
+            await deleteDoc(doc.ref);
+            console.log("Nome do filme removido do Firestore com sucesso!");
+          });
+
+          // Remover o filme da matriz likedMovies
+          const movieIndex = likedMovies.indexOf(movieName);
+          if (movieIndex !== -1) {
+            likedMovies.splice(movieIndex, 1);
           }
-        };
+        } else {
+          console.log("O filme não foi encontrado no Firestore.");
+        }
+      } else {
+        console.log("Usuário não encontrado.");
+      }
+    } else {
+      console.log("Usuário não autenticado.");
+    }
+  } catch (error) {
+    console.error("Erro ao verificar/remover o filme no Firestore:", error);
+  }
+};
 
-        
-            },1500)
-            </script>
+</script>
     </body>
 </html>
