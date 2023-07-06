@@ -17,7 +17,7 @@ window.addEventListener('load', function() {
   let out = document.querySelectorAll('.out')
         
         
-if(localStorage.getItem('User') && localStorage.getItem('foto') == false){
+if(localStorage.getItem('User') != null && localStorage.getItem('foto') == false){
     icon.src='perfil.png'
     icon.classList.toggle('logged');
       a.href='account.html'
@@ -25,7 +25,7 @@ if(localStorage.getItem('User') && localStorage.getItem('foto') == false){
           element.style.display='flex';
           element.classList.toggle('insivible')
       })
-}else if(localStorage.getItem('User') && localStorage.getItem('UserImg')){
+}else if(localStorage.getItem('User') != null && localStorage.getItem('UserImg') != null){
     icon.src=localStorage.getItem('UserImg')
     icon.classList.toggle('logged');
       a.href='account.html'
