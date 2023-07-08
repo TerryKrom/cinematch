@@ -110,7 +110,6 @@ const checkChanges = () => {
       });
     });
     res.innerHTML=''
-    
     console.log('Mudanças detectadas');
   }
 };
@@ -195,7 +194,8 @@ const API_KEY = '12a3c56c';
 
 const matchMovies = (query, space, qtd) => {
   // Verifica se a seção já existe
-  let section = space.querySelector('.mt-5');
+  if(query != undefined){
+    let section = space.querySelector('.mt-5');
   
   if (!section) {
     // Cria a seção caso não exista
@@ -215,7 +215,7 @@ const matchMovies = (query, space, qtd) => {
     space.appendChild(section);
   }
   
-  fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${query}&type=movie&plot=full&page=1`)
+  fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}&type=movie&plot=full&page=1`)
     .then(response => response.json())
     .then(data => {
       if (Array.isArray(data.Search)) {
@@ -248,6 +248,7 @@ const matchMovies = (query, space, qtd) => {
       }
     })
     .catch(error => console.error(error));
+  }
 }
 
 const verifyGenre = (g) => {
