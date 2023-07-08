@@ -15,9 +15,9 @@ window.addEventListener('load', function() {
   let icon = document.getElementById('perfil')
   let a = document.getElementById('a-perfil')
   let out = document.querySelectorAll('.out')
+  let btn_login = document.querySelectorAll('.btn-login')
         
-        
-if(localStorage.getItem('User') != null && localStorage.getItem('foto') == false){
+if(localStorage.getItem('User') && localStorage.getItem('foto') == false){
     icon.src='perfil.png'
     icon.classList.toggle('logged');
       a.href='account.html'
@@ -25,7 +25,7 @@ if(localStorage.getItem('User') != null && localStorage.getItem('foto') == false
           element.style.display='flex';
           element.classList.toggle('insivible')
       })
-}else if(localStorage.getItem('User') != null && localStorage.getItem('UserImg') != null){
+}else if(localStorage.getItem('User') && localStorage.getItem('UserImg')){
     icon.src=localStorage.getItem('UserImg')
     icon.classList.toggle('logged');
       a.href='account.html'
@@ -34,6 +34,9 @@ if(localStorage.getItem('User') != null && localStorage.getItem('foto') == false
           element.classList.toggle('insivible')
 
       })
+    btn_login.forEach(e => {
+      e.style.display="none"
+    })
 }
 
 if(localStorage.length == 0){
