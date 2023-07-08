@@ -574,6 +574,11 @@ header{
   justify-content: space-between;
   width: 100%;
 }
+@media screen and (max-width: 850px){
+  .search-bar{
+    margin-bottom: 50px !important;
+  }
+}
 
 .search-bar input{
   height: 45px;
