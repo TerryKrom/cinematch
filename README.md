@@ -1,3 +1,3 @@
 # CineMatch
-Web App de filmes
--- Em Desenvolvimento!
+> A movie Website, with recomendations and a lot of movie banners!
+- in progress...
