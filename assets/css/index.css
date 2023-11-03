@@ -360,7 +360,7 @@ header{
     width: 100%;
     background-color: #151515;
     height: 450px;
-    background: url('bg1.png') no-repeat center center;
+    background: url('../images/bg1.png') no-repeat center center;
     background-size: cover;
     color: #fff;
     display: flex;
@@ -478,13 +478,13 @@ header{
 
   @keyframes switch {
     0%{
-        background-image: url('bg1.png')
+        background-image: url('../images/bg1.png')
     }
     50%{
-        background-image: url('bg2.png')   
+        background-image: url('../images/bg2.png')   
     }
     100%{
-        background-image: url('bg3.png')
+        background-image: url('../images/bg3.png')
     }
   }
 
