@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineMatch</title>
-    <link rel="stylesheet" href="./index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="shortcut icon" href="./popcorn.png" type="image/x-icon">
-    <link rel="stylesheet" href="loading.css">
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/loading.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <script type="module" src="https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js"></script>
 </head>
 <body>
     <div id="loading" class="pulse">
-        <img src="popcorn.png" alt="" width="150">
+        <img src="assets/images/popcorn.png" alt="" width="150">
     </div>
 
 <div class="separatorX"></div>
@@ -21,7 +21,7 @@
     <div class="hidden" id="content">
     <header>
             <div class="container-logo">
-                <a href="index.html"><img src="./popcorn.png" alt="CineMatch" class="logo">
+                <a href="index.html"><img src="assets/images/popcorn.png" alt="CineMatch" class="logo">
                 </a>
                 <h2 id="textlogo">
                     <span style="color: #dc041c">C</span><span>I</span><span>N</span><span>E</span><span style="color: #dc041c">M</span><span>A</span><span>T</span><span>C</span><span>H</span>
@@ -30,22 +30,22 @@
             <div class="container-links">
                 <nav class="nav-links">
                     <ul>
-                        <li><a href="index.html" class="current">Filmes</a></li>
+                        <li><a href="./index.html" class="current">Filmes</a></li>
                         <li><a href="">Recomendações</a></li>
-                        <li><a href="match.html">Match</a></li>
+                        <li><a href="./match.html">Match</a></li>
                         <li class="btn-login"><a href="./login.html">Login</a></li>
-                        <li><a href="">Configurações</a></li>
+                        <li><a href="#">Configurações</a></li>
                     </ul>
                 </nav>
                 </div>
                 <div class="container-perfil">
                     <div class="icon-perfil">
                         <a id="a-perfil" href="./login.html">
-                        <img onmouseenter="showOutMenu()" src="./perfil.png" alt="" class="perfil" id="perfil">
+                        <img onmouseenter="showOutMenu()" src="assets/images/perfil.png" alt="" class="perfil" id="perfil">
                         </a>
                         </div>
                     <div class="menu-perfil"  onmouseleave="removeMenu()">
-                        <a id="myaccount" href="account.html">Minha Conta</a>
+                        <a id="myaccount" href="./account.html">Minha Conta</a>
                         <a href="./login.html" class="out">Sair</a>
                     </div>
                 </div>
@@ -57,9 +57,9 @@
     
                 <div class="menu-hide">
                     <ul class="hide-li">
-                        <li><a href="index.html">Filmes</a></li>
-                        <li><a href="">Recomendações</a></li>
-                        <li><a href="match.html">Match</a></li>
+                        <li><a href="./index.html">Filmes</a></li>
+                        <li><a href="#">Recomendações</a></li>
+                        <li><a href="./match.html">Match</a></li>
                         <li class="btn-login"><a href="./login.html">Login</a></li>
                         <li><a href="">Configurações</a></li>
                         </ul>
@@ -126,31 +126,14 @@
         </div>
     </footer>
     </div>
-        <script defer src="./movies.js"></script>
-        <script src="./menu.js"></script>
-        <script defer src="./loading.js"></script>
-        <script defer type="module" src="fb_config.js"></script>
+        <script defer src="assets/js/movies.js"></script>
+        <script src="assets/js/menu.js"></script>
+        <script defer src="assets/js/loading.js"></script>
+        <script defer type="module" src="assets/js/fb_config.js"></script>
         <script type="module">
             let imgUrl = localStorage.getItem('UserImg')
             let icon = document.getElementById('perfil')
             let out = document.querySelectorAll('.out')
-            // if(!localStorage.getItem('User')){
-            //     icon.src='perfil.png'
-            //     out.forEach(element => {
-            //         element.style.display='none';
-            //     })
-            //     let btn_a = document.getElementById('myaccount')
-            //     btn_a.innerHTML='Login'
-            //     btn_a.href='login.html'
-            // }
-            // if(localStorage.getItem('User')){
-            //     icon.src=imgUrl
-            //     icon.classList.toggle('logged');
-            //     a.href='account.html'
-            //     out.forEach(element => {
-            //         element.style.display='flex';
-            //     })
-            // }
 const logout = () => {
   auth.signOut()
     .then(() => {
