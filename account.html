@@ -17,51 +17,51 @@
     </div>
 
     <div class="hidden" id="content">
-    <header>
-        <div class="container-logo">
-            <a href="./index.html"><img src="assets/images/popcorn.png" alt="CineMatch" class="logo">
-            </a>
-            <h2 id="textlogo">
-                <span style="color: #dc041c">C</span><span>I</span><span>N</span><span>E</span><span style="color: #dc041c">M</span><span>A</span><span>T</span><span>C</span><span>H</span>
-            </h2>
-        </div>
-        <div class="container-links">
-            <nav class="nav-links">
-                <ul>
-                    <li><a href="./index.html">Filmes</a></li>
-                    <li><a href="#">Recomendações</a></li>
-                    <li><a href="./match.html"> Match </a></li>
-                    <li class="btn-login"><a href="./login.html">Login</a></li>
-                    <li><a href="#">Configurações</a></li>
-                </ul>
-            </nav>
+        <header>
+            <div class="container-logo">
+                <a href="./index.html"><img src="assets/images/popcorn.png" alt="CineMatch" class="logo">
+                </a>
+                <h2 id="textlogo">
+                    <span style="color: #dc041c">C</span><span>I</span><span>N</span><span>E</span><span style="color: #dc041c">M</span><span>A</span><span>T</span><span>C</span><span>H</span>
+                </h2>
             </div>
-            <div class="container-perfil">
-                <div class="icon-perfil">
-                    <a href="./index.html">
-                        <img onmouseenter="showOutMenu()" src="./perfil.png" alt="" class="perfil" id="perfil">
-                    </a>
-                    </div>
-                <div class="menu-perfil"  onmouseleave="removeMenu()">
-                    <a href="./login.html" class="out">Sair</a>
+            <div class="container-links">
+                <nav class="nav-links">
+                    <ul>
+                        <li><a href="./index.html">Filmes</a></li>
+                        <li><a href="#">Recomendações</a></li>
+                        <li><a href="./match.html"> Match </a></li>
+                        <li class="btn-login"><a href="./login.html">Login</a></li>
+                        <li><a href="#">Configurações</a></li>
+                    </ul>
+                </nav>
                 </div>
-            </div>
-            <div class="burger" id="burger-menu">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            
-            <div class="menu-hide">
-                <ul class="hide-li">
-                    <li><a href="./index.html">Filmes</a></li>
-                    <li><a href="#">Recomendações</a></li>
-                    <li><a href="./match.html">Match</a></li>
-                    <li class="btn-login"><a href="./login.html">Login</a></li>
-                    <li><a href="#">Configurações</a></li>
-                    <li class="out">Sair</li>
-                </ul>
-              </div>
+                <div class="container-perfil">
+                    <div class="icon-perfil">
+                        <a href="./index.html">
+                            <img onmouseenter="showOutMenu()" src="./perfil.png" alt="" class="perfil" id="perfil">
+                        </a>
+                        </div>
+                    <div class="menu-perfil"  onmouseleave="removeMenu()">
+                        <a href="./login.html" class="out">Sair</a>
+                    </div>
+                </div>
+                <div class="burger" id="burger-menu">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                
+                <div class="menu-hide">
+                    <ul class="hide-li">
+                        <li><a href="./index.html">Filmes</a></li>
+                        <li><a href="#">Recomendações</a></li>
+                        <li><a href="./match.html">Match</a></li>
+                        <li class="btn-login"><a href="./login.html">Login</a></li>
+                        <li><a href="#">Configurações</a></li>
+                        <li class="out">Sair</li>
+                    </ul>
+                </div>
         </header>
 
         <section class="main-perfil justify-content-center row">
@@ -97,73 +97,72 @@
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
         <script src="assets/js/menu.js"></script>
         <script src="assets/js/loading.js"></script>
-    <script type="module">
-        let perfil_image = document.getElementById('perfil-image')
-        let imgUrl = localStorage.getItem('UserImg')
-        let nome = document.getElementById('name')
-        let usernameLabel = document.getElementById('username')
-        let username = localStorage.getItem('User')
-        usernameLabel.innerHTML+=username
-        if(localStorage.length == 0){
-            icon.src='./perfil.png'
-            out.forEach(element => {
-                element.style.display='none';
-            })
-        }
-        out.forEach(element => {
-            element.addEventListener('click', function(){
-            localStorage.clear()
-            out.style.display='none';
-            window.location.href='login.html'
-            })
-        })
-
-            
-        if(localStorage.length!=0){
-            let btns = document.querySelectorAll('.btn-login')
-            btns.forEach(element => {
-                element.style.display='none'
-            });   
-        }
-        let res = document.getElementById('res')
-
-        const firebaseConfig = {
-          apiKey: "AIzaSyDpQcKbYfP6PWYo4186zfLKP9vlfZjC5YE",
-          authDomain: "cinematch-3e757.firebaseapp.com",
-          projectId: "cinematch-3e757",
-          storageBucket: "cinematch-3e757.appspot.com",
-          messagingSenderId: "372273255417",
-          appId: "1:372273255417:web:aea0cdab837d2baaf5e328",
-          measurementId: "G-JELQB2MP41"
-        };
-        
-        firebase.initializeApp(firebaseConfig);
-         // Referência para o Firestore
-        var db = firebase.firestore();
-        let result = []
-        let list = []
-        // Aguardar a inicialização do aplicativo Firebase
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                // Aqui você pode acessar as funcionalidades do Firestore
-                var filmesRef = db.collection('filmes');
-                filmesRef.get()
-                    .then((querySnapshot) => {
-                        querySnapshot.forEach((doc) => {
-                            result=doc.data().nome
-                            console.log(result)
-                        });
-                        
-                    })
-                    .catch((error) => {
-                        console.error('Erro ao recuperar documentos da coleção "filmes":', error);
-                    });
-            } else {
-                // Usuário não autenticado
-                console.log('Usuário não autenticado');
+        <script type="module">
+            let perfil_image = document.getElementById('perfil-image')
+            let imgUrl = localStorage.getItem('UserImg')
+            let nome = document.getElementById('name')
+            let usernameLabel = document.getElementById('username')
+            let username = localStorage.getItem('User')
+            usernameLabel.innerHTML+=username
+            if(localStorage.length == 0){
+                icon.src='./perfil.png'
+                out.forEach(element => {
+                    element.style.display='none';
+                })
             }
-        });
-        </script>
-        
+            out.forEach(element => {
+                element.addEventListener('click', function(){
+                localStorage.clear()
+                out.style.display='none';
+                window.location.href='login.html'
+                })
+            })
+
+                
+            if(localStorage.length!=0){
+                let btns = document.querySelectorAll('.btn-login')
+                btns.forEach(element => {
+                    element.style.display='none'
+                });   
+            }
+            let res = document.getElementById('res')
+
+            const firebaseConfig = {
+            apiKey: "AIzaSyDpQcKbYfP6PWYo4186zfLKP9vlfZjC5YE",
+            authDomain: "cinematch-3e757.firebaseapp.com",
+            projectId: "cinematch-3e757",
+            storageBucket: "cinematch-3e757.appspot.com",
+            messagingSenderId: "372273255417",
+            appId: "1:372273255417:web:aea0cdab837d2baaf5e328",
+            measurementId: "G-JELQB2MP41"
+            };
+            
+            firebase.initializeApp(firebaseConfig);
+            // Referência para o Firestore
+            var db = firebase.firestore();
+            let result = []
+            let list = []
+            // Aguardar a inicialização do aplicativo Firebase
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    // Aqui você pode acessar as funcionalidades do Firestore
+                    var filmesRef = db.collection('filmes');
+                    filmesRef.get()
+                        .then((querySnapshot) => {
+                            querySnapshot.forEach((doc) => {
+                                result=doc.data().nome
+                                console.log(result)
+                            });
+                            
+                        })
+                        .catch((error) => {
+                            console.error('Erro ao recuperar documentos da coleção "filmes":', error);
+                        });
+                } else {
+                    // Usuário não autenticado
+                    console.log('Usuário não autenticado');
+                }
+            });
+        </script>        
 </body>
 </html>
