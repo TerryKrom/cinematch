@@ -511,6 +511,7 @@ header {
 
 .text {
   width: 600px;
+  height: auto;
   text-shadow: 3px 3px 2px #25252599;
   margin: 30px;
 }
@@ -683,16 +684,39 @@ header {
   .text h1 {
     font-size: 1.9rem;
   }
+  .text{
+    width: 80% !important;
+  }
 
   .card {
     width: 50% !important;
   }
-
   .search-bar {
     flex-direction: column;
   }
 }
 
+@media only screen and (max-width: 540px){
+  .text h1{
+    font-size: calc(1.3rem + .9vw) !important;
+  }
+  .text h2{
+    font-size: calc(1.2rem + .9vw) !important;
+  }
+  .text{
+    margin: 10px !important;
+  }
+  .logo img{
+    margin-left: 10px;
+  }
+  #destaque{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 90% !important;
+  }
+}
 .logged {
   width: 100%;
   height: 100%;
