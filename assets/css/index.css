@@ -172,29 +172,44 @@ header {
 }
 
 
-@media only screen and (min-width: 1080px){
-  .container-logo{
+@media only screen and (min-width: 1080px) {
+  .container-logo {
     flex: 3;
     justify-content: flex-start !important;
     margin-left: 20px;
   }
-  .container-perfil{
+
+  .container-perfil {
     flex: 1;
   }
 }
 
 
-@media only screen and (max-width: 540px){
-  .text h1{
+@media only screen and (max-width: 540px) {
+  .text h1 {
     font-size: calc(1.3rem + .9vw) !important;
+    max-width: 100%;
+    width: 100% !important;
+    text-wrap: wrap !important;
   }
-  .text h2{
+
+  .text h2 {
     font-size: calc(1.2rem + .9vw) !important;
+    max-width: 100%;
+    width: 100% !important;
+    height: 75px;
+    text-wrap: wrap !important;
   }
-  .text{
+
+  .text {
     margin: 10px !important;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
   }
-  .container-logo{
+
+  .container-logo {
     margin-left: 5px;
     display: flex;
     justify-content: space-between;
@@ -207,7 +222,7 @@ header {
 }
 
 .container-links,
-.container-logo{
+.container-logo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -292,13 +307,6 @@ header {
     margin-right: -20px;
   }
 
-  .text {
-    margin: 20px;
-    width: 450px;
-  }
-  .text h1{
-    width: min-content !important;
-  }
 
   .separatorX {
     display: none;
@@ -306,10 +314,6 @@ header {
 
   .animation h2 {
     font-size: 1.5rem;
-  }
-
-  .text h1 {
-    font-size: 2rem !important;
   }
 
   span {
@@ -525,10 +529,10 @@ header {
 }
 
 .text {
-  width: 600px;
   height: auto;
   text-shadow: 3px 3px 2px #25252599;
   margin: 30px;
+  width: 95%;
 }
 
 .text h1,
@@ -538,6 +542,7 @@ header {
 }
 
 .text h1 {
+  width: min-content;
   font-size: 2.4rem;
   overflow: hidden;
   /* Esconde o texto até que seja revelado pela animação */
@@ -566,10 +571,6 @@ header {
   /* animation-delay: 4.5s; */
   font-size: 1.5rem;
   letter-spacing: 3px;
-}
-
-.text p {
-  margin-top: 20px;
 }
 
 .separatorX {
@@ -699,25 +700,23 @@ header {
   .text h1 {
     font-size: 1.9rem;
   }
-  .text{
-    width: 80% !important;
-  }
 
   .card {
     width: 50% !important;
   }
+
   .search-bar {
     flex-direction: column;
   }
 }
 
-  #destaque{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    width: 90% !important;
-  }
+#destaque {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 90% !important;
+}
 
 .logged {
   width: 100%;
