@@ -171,6 +171,7 @@ header {
   height: 100%;
 }
 
+
 @media only screen and (min-width: 1080px){
   .container-logo{
     flex: 3;
@@ -179,6 +180,25 @@ header {
   }
   .container-perfil{
     flex: 1;
+  }
+}
+
+
+@media only screen and (max-width: 540px){
+  .text h1{
+    font-size: calc(1.3rem + .9vw) !important;
+  }
+  .text h2{
+    font-size: calc(1.2rem + .9vw) !important;
+  }
+  .text{
+    margin: 10px !important;
+  }
+  .container-logo{
+    margin-left: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -260,11 +280,6 @@ header {
 
   .logo {
     width: 50px;
-    margin-left: 30px;
-  }
-
-  .container-logo {
-    margin-left: -40px;
   }
 
   .burger,
@@ -696,19 +711,6 @@ header {
   }
 }
 
-@media only screen and (max-width: 540px){
-  .text h1{
-    font-size: calc(1.3rem + .9vw) !important;
-  }
-  .text h2{
-    font-size: calc(1.2rem + .9vw) !important;
-  }
-  .text{
-    margin: 10px !important;
-  }
-  .logo img{
-    margin-left: 10px;
-  }
   #destaque{
     display: flex;
     justify-content: center;
@@ -716,7 +718,6 @@ header {
     flex-direction: column;
     width: 90% !important;
   }
-}
 
 .logged {
   width: 100%;
