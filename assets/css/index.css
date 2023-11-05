@@ -71,14 +71,6 @@ body {
   opacity: 0;
 }
 
-.play-animation {
-  animation: float-in 3s ease-in-out;
-}
-
-.play-animation2 {
-  animation: fadeInUp 2.5s linear;
-}
-
 .animation h2 {
   font-size: 2.4rem;
   overflow: hidden;
@@ -112,7 +104,7 @@ header {
 }
 
 
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 1080px){
   .container-logo {
     flex: 3;
     justify-content: flex-start !important;
@@ -123,7 +115,6 @@ header {
     flex: 1;
   }
 }
-
 
 @media only screen and (max-width: 540px) {
   .text h1 {
@@ -228,7 +219,7 @@ header {
 }
 
 /*<<<<<<<<<<<<<< MOBILE STYLE >>>>>>>>>>>>>>>*/
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 940px) {
   .nav-links li {
     display: none;
   }
@@ -412,7 +403,8 @@ header {
   width: 100%;
   background-color: #151515;
   height: 450px;
-  background: url('../images/bg1.png') no-repeat center center;
+  background: url('../images/bg1.png') no-repeat;
+  background-position: center center;
   background-size: cover;
   color: #fff;
   display: flex;
@@ -472,10 +464,17 @@ header {
   width: 500px;
 }
 
-
 #textlogo span {
   display: inline-block;
   font-size: 1.4rem;
+}
+
+/* #textlogo, .logo, .container-logo{
+  border: 1px solid #fff;
+} */
+
+#textlogo{
+  margin-top: 15px;
 }
 
 .cards-container {

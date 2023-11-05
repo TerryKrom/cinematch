@@ -137,7 +137,6 @@
   <script defer src="assets/js/movies.js"></script>
   <script src="assets/js/menu.js"></script>
   <script defer src="assets/js/loading.js"></script>
-  <script defer type="module" src="assets/js/fb_config.js"></script>
   <script type="module">
     let imgUrl = localStorage.getItem('UserImg')
     let icon = document.getElementById('perfil')
@@ -193,8 +192,6 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const auth = getAuth(app);
-
-
 
     const likedMovies = [];
 
