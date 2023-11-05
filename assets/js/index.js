@@ -30,3 +30,41 @@ outElement.forEach(element => {
     })
 })
 
+
+const likedMovies = [];
+
+setTimeout(function () {
+  const heart = document.querySelectorAll('.bi-heart-fill');
+  const title = document.querySelectorAll('.card-title');
+  const title_obj = {};
+
+  title.forEach((item, index) => {
+    title_obj[index] = item;
+  });
+
+  heart.forEach(element => {
+    element.addEventListener("click", async function () {
+      const id = element.getAttribute('id');
+      const text_title = title_obj[id].textContent.split('\n', 1);
+      if (element.classList.contains('liked')) {
+        element.style.fill = "#fff";
+        element.classList.remove('liked');
+        removeLikedMovie(text_title[0]);
+      } else {
+        element.style.fill = "#e6051f";
+        element.classList.add('liked');
+        addLikedMovie(text_title[0]);
+      }
+    });
+  });
+}, 2000);
+
+const addLikedMovie = (movieName) => {
+  likedMovies.push(movieName)
+  localStorage.setItem('likedMovies', likedMovies.toString())
+}
+
+const removeLikedMovie = (movieName) => {
+  likedMovies.splice(likedMovies.indexOf(movieName))
+  localStorage.setItem('likedMovies', likedMovies.toString())
+}
