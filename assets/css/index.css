@@ -373,7 +373,7 @@ header {
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  z-index: 2;
+  z-index: -99;
   opacity: 0;
 }
 
@@ -401,7 +401,6 @@ header {
 
 .main-movies {
   width: 100%;
-  background-color: #151515;
   height: 450px;
   background: url('../images/bg1.png') no-repeat;
   background-position: center center;

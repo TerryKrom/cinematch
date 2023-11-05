@@ -14,7 +14,7 @@ const showOutMenu = () => {
 }
 const removeMenu = () => {
   menu.style.opacity=0;
-  menu.style.zIndex=0
+  menu.style.zIndex=(-99)
 }
 
 burgerMenu.addEventListener('click', () => {
