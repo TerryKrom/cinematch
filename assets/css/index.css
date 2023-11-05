@@ -49,42 +49,6 @@ body {
   justify-content: space-around;
 }
 
-@keyframes opening {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes scaleLogo {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInText {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 #page {
   opacity: 0;
 }
@@ -127,30 +91,6 @@ body {
   /* Define o espaçamento entre as letras */
   font-size: 2.3rem;
   /* Define o tamanho da fonte do texto */
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float-in {
-  0% {
-    opacity: 0;
-    transform: translateY(100%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 header {
@@ -370,7 +310,7 @@ header {
   background-color: #252525;
   margin-top: 345px;
   z-index: 90;
-  animation: surgirC 0.5s ease forwards;
+  animation: emerge 0.5s ease forwards;
 }
 
 .menu-hide ul {
@@ -482,55 +422,13 @@ header {
   animation-delay: 7s;
 }
 
-
-@keyframes switch {
-  0% {
-    background-image: url('../images/bg1.png')
-  }
-
-  50% {
-    background-image: url('../images/bg2.png')
-  }
-
-  100% {
-    background-image: url('../images/bg3.png')
-  }
-}
-
-
-@keyframes shake {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  20% {
-    transform: rotate(5deg)
-  }
-
-  40% {
-    transform: rotate(10deg)
-  }
-
-  60% {
-    transform: rotate(5deg)
-  }
-
-  80% {
-    transform: rotate(0deg)
-  }
-
-  100% {
-    transform: rotate(-5deg)
-  }
-}
-
 .logo:hover {
   animation: shake 0.2s linear alternate;
 }
 
 .text {
   height: auto;
-  text-shadow: 3px 3px 2px #25252599;
+  text-shadow: 3px 3px 2px #2525257a;
   margin: 30px;
   width: 95%;
 }
@@ -551,7 +449,7 @@ header {
   margin: 0;
   white-space: nowrap;
   /* Impede que o texto envolva para a próxima linha */
-  letter-spacing: .15em;
+  letter-spacing: .09em;
   /* Define o espaçamento entre as letras */
   font-size: 2.3rem;
   /* Define o tamanho da fonte do texto */
@@ -565,10 +463,7 @@ header {
   text-indent: 3px;
   margin-top: 10px;
   opacity: 0;
-  /* Inicialmente, o texto é invisível */
-  animation: surgir 1.5s ease forwards;
-  /* Aplica a animação chamada "surgir" ao texto */
-  /* animation-delay: 4.5s; */
+  animation: emerge 1.5s ease forwards;
   font-size: 1.5rem;
   letter-spacing: 3px;
 }
@@ -577,78 +472,6 @@ header {
   width: 500px;
 }
 
-@keyframes escrever {
-  from {
-    width: 0
-  }
-
-  to {
-    width: 100%
-  }
-}
-
-@keyframes piscar-cursor {
-
-  from,
-  to {
-    border-color: transparent
-  }
-
-  50% {
-    border-color: #e6051f;
-  }
-}
-
-@keyframes surgir {
-  from {
-    opacity: 0;
-    /* Começa com uma opacidade de 0 */
-    transform: translateY(50px);
-    /* Começa 50px abaixo da posição original */
-  }
-
-  to {
-    opacity: 1;
-    /* Termina com uma opacidade de 1 */
-    transform: translateY(0px);
-    /* Termina na posição original, sem deslocamento vertical */
-  }
-
-}
-
-@keyframes surgirC {
-  from {
-    opacity: 0;
-    /* Começa com uma opacidade de 0 */
-    transform: translateX(50px);
-    /* Começa 50px acima da posição original */
-  }
-
-  to {
-    opacity: 1;
-    /* Termina com uma opacidade de 1 */
-    transform: translateX(0px);
-    /* Termina na posição original, sem deslocamento vertical */
-  }
-
-}
-
-@keyframes surgirB {
-  from {
-    opacity: 0;
-    /* Começa com uma opacidade de 0 */
-    transform: translateX(-50px);
-    /* Começa 50px acima da posição original */
-  }
-
-  to {
-    opacity: 1;
-    /* Termina com uma opacidade de 1 */
-    transform: translateX(0px);
-    /* Termina na posição original, sem deslocamento vertical */
-  }
-
-}
 
 #textlogo span {
   display: inline-block;
@@ -668,7 +491,7 @@ header {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   height: 400px !important;
-  animation: surgirB 0.3s linear;
+  animation: emergeLeft 0.3s linear;
 }
 
 .card img {

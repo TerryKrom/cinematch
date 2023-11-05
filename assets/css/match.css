@@ -30,10 +30,6 @@
 .selected{
     border-color: #e6051f !important;
 }
-/* 
-.genre-list .selected:nth-child(2) svg{
-    fill: #f376de;
-} */
 
 .genre svg{
     margin: 30px;
@@ -60,15 +56,6 @@
     letter-spacing: 2px;
     transition: all 0.375s;
     margin-top: 20px;
-}
-
-@keyframes disapear {
-    0%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0 !important;
-    }
 }
 
 .hidden{

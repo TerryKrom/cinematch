@@ -9,6 +9,7 @@
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="assets/css/login.css">
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+  <link rel="stylesheet" href="assets/css/animations.css">
 </head>
 
 <body onload="accountCheck()">
@@ -79,15 +80,13 @@
           localStorage.setItem('User', result.user.displayName);
           localStorage.setItem('UserImg', result.user.photoURL);
           const email = result.user.email;
-
           const querySnapshot = await getDocs(collection(db, "usuarios"), where("email", "==", email));
-
+          window.location.href = './index.html';
+        
           if (querySnapshot.empty) {
             // A conta do Google não foi registrada anteriormente, lançar um erro
             throw new Error("Conta do Google não registrada. Faça o registro antes de fazer login.");
           }
-
-          window.location.href = './index.html';
         })
         .catch((error) => {
           // Tratar erros de login
