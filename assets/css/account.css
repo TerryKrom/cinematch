@@ -1,9 +1,9 @@
 .main-perfil{
-    border: 1px solid #d3d3d3;
     margin: 20px 40px !important;
+    background-color: #202020;
     height: 250px;
     border-radius: 10px;
-    display: none !important;
+    /* display: none !important; */
 }
 
 #perfil-image{
@@ -79,15 +79,19 @@
     z-index: 2;
 }
 
-.user-top svg:hover{
-    transform: rotate(30deg);
-    scale: 1.1;
-}
 #res{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    width: 50%;
-    border-radius: 25px;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #202020;
+    border-radius: 10px;
+    color: #fff;
+    width: 90%;
+}
+
+#res div{
+    border: 1px solid #fff;
+    margin: 10px;
+    padding: 10px;
 }
