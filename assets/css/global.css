@@ -1,0 +1,468 @@
+/*>> THE MAIN CONFIGURATION <<*/
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    transition: 0.2s linear;
+}
+
+:root{
+    --red: #e6051f; 
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #101010 !important;
+    color: #fff !important;
+    overflow-x: hidden !important;
+}
+
+
+::-webkit-scrollbar-track {
+    background-color: #252525;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #252525;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #810d1b;
+    border-radius: 5px;
+}
+
+#page {
+    opacity: 0;
+}
+
+.loaded-page {
+    opacity: 1 !important;
+}
+/* >> ===================== <<*/
+
+/*>> HEADER <<*/
+
+header {
+    height: 75px;
+    width: 100%;
+    background-color: #252525;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 3px;
+    height: 100%;
+}
+
+
+@media only screen and (min-width: 1080px) {
+    .container-logo {
+        flex: 3;
+        justify-content: flex-start !important;
+        margin-left: 20px;
+    }
+
+    .container-perfil {
+        flex: 1;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .text h1 {
+        font-size: calc(1.3rem + .9vw) !important;
+        max-width: 100%;
+        width: 100% !important;
+        text-wrap: wrap !important;
+    }
+
+    .text h2 {
+        font-size: calc(1.2rem + .9vw) !important;
+        max-width: 100%;
+        width: 100% !important;
+        height: 75px;
+        text-wrap: wrap !important;
+    }
+
+    .text {
+        margin: 10px !important;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+
+    .container-logo {
+        margin-left: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.logo {
+    width: 65px;
+}
+
+.container-links,
+.container-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links ul a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.nav-links ul li {
+    margin: 10px 30px 0px 30px;
+}
+
+.current {
+    border-bottom: 2px solid #e6051f;
+}
+
+.nav-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #e6051f;
+    transition: width .3s;
+}
+
+.current:hover::after {
+    width: 0 !important;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.burger,
+.line {
+    display: none;
+}
+
+.burger {
+    width: 35px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.line {
+    background-color: #fff;
+    height: 3px;
+    width: 100%;
+    border-radius: 2px;
+    margin-top: 7px;
+}
+
+/*<<<<<<<<<<<<<< MOBILE STYLE >>>>>>>>>>>>>>>*/
+@media screen and (max-width: 940px) {
+    .nav-links li {
+        display: none;
+    }
+
+    .logo {
+        width: 50px;
+    }
+
+    .burger,
+    .line {
+        display: block;
+    }
+
+    .container-perfil {
+        margin-left: 10px;
+        margin-right: -20px;
+    }
+
+
+    .separatorX {
+        display: none;
+    }
+
+    .animation h2 {
+        font-size: 1.5rem;
+    }
+
+    span {
+        font-size: 1rem;
+    }
+
+    .search-bar {
+        margin: 0 !important;
+    }
+
+    .search-inputs {
+        display: flex !important;
+        width: 100% !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .card {
+        width: 100%;
+    }
+}
+
+#movie-list,
+#movie-search {
+    margin: 0 !important;
+}
+
+#burger-menu.open div:first-child {
+    transform: translateY(10px) rotate(45deg);
+}
+
+#burger-menu.open div:nth-child(2) {
+    opacity: 0;
+}
+
+#burger-menu.open div:last-child {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+.menu-hide {
+    display: none;
+}
+
+.menu-hide.open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    width: 150px;
+    height: 270px;
+    right: 0;
+    background-color: #252525;
+    margin-top: 345px;
+    z-index: 90;
+    animation: emerge 0.5s ease forwards;
+}
+
+.menu-hide ul {
+    list-style: none;
+}
+
+.menu-hide li {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 90px;
+}
+
+.menu-hide a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-hide a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #e6051f;
+    transition: width .3s;
+}
+
+.menu-hide li a:hover::after {
+    width: 100%;
+}
+
+.perfil {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.container-perfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 25px;
+    width: 125px;
+}
+
+.icon-perfil {
+    background-color: #e6c405;
+    border: 3px solid #fff;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 0px;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-top: 80px;
+}
+
+.menu-perfil {
+    background-color: #252525;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    z-index: -99;
+    opacity: 0;
+}
+
+.menu-perfil a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu-perfil a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #e6051f;
+    transition: width .3s;
+}
+
+.menu-perfil a:hover::after {
+    width: 100%;
+}
+
+.banner {
+    width: 100%;
+    height: 450px;
+    background: url('../images/bg1.png') no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    justify-content: left;
+    position: relative;
+    /* animation: switch 10s alternate-reverse infinite;
+    animation-delay: 7s; */
+}
+
+.logo:hover {
+    animation: shake 0.2s linear alternate;
+}
+
+.text {
+    height: auto;
+    text-shadow: 3px 3px 2px #2525257a;
+    margin: 30px;
+    width: 95%;
+}
+
+.text h1,
+.text h2,
+.text p {
+    font-weight: normal;
+}
+
+.text h1 {
+    width: min-content;
+    font-size: 2.4rem;
+    overflow: hidden;
+    /* Esconde o texto até que seja revelado pela animação */
+    border-right: .12em solid #e6051f;
+    /* Adiciona um cursor de escrita ao lado direito do texto */
+    margin: 0;
+    white-space: nowrap;
+    /* Impede que o texto envolva para a próxima linha */
+    letter-spacing: .09em;
+    /* Define o espaçamento entre as letras */
+    font-size: 2.3rem;
+    /* Define o tamanho da fonte do texto */
+    animation:
+        escrever 3s steps(40, end),
+        piscar-cursor .75s step-end infinite;
+}
+
+
+.text h2 {
+    text-indent: 3px;
+    margin-top: 10px;
+    opacity: 0;
+    animation: emerge 1.5s ease forwards;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+}
+
+.separatorX {
+    width: 500px;
+}
+
+#textlogo span {
+    display: inline-block;
+    font-size: 1.4rem;
+}
+
+#textlogo {
+    margin-top: 15px;
+}
+
+.logged {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+
+/*>> FOOTER <<*/
+footer {
+    width: 100%;
+    background-color: #252525;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    margin: 7px 7px 7px 0px;
+}
+
+footer .center {
+    align-items: start !important;
+}
+
+footer a:hover {
+    opacity: 0.8;
+}

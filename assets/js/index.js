@@ -4,8 +4,6 @@ let outElement = document.querySelectorAll('.out')
 const logout = () => {
     auth.signOut()
         .then(() => {
-            console.log("Logout realizado com sucesso.");
-            // Redirecione para a página de login ou para outra página desejada
             window.location.href = "login.html";
         })
         .catch((error) => {
@@ -31,7 +29,7 @@ outElement.forEach(element => {
 })
 
 
-const likedMovies = [];
+const likedMovies = localStorage.getItem("likedMovies").split(',') || [];
 
 setTimeout(function () {
   const heart = document.querySelectorAll('.bi-heart-fill');
@@ -43,7 +41,7 @@ setTimeout(function () {
   });
 
   heart.forEach(element => {
-    element.addEventListener("click", async function () {
+    element.addEventListener("click", () => {
       const id = element.getAttribute('id');
       const text_title = title_obj[id].textContent.split('\n', 1);
       if (element.classList.contains('liked')) {

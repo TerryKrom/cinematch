@@ -4,11 +4,12 @@ let matchQuery = [];
 let res = document.getElementById('res')
 let age = document.querySelectorAll('.age');
 let selectedAge = '';
-let clean = document.getElementById('limpar')
+let cleanBtn = document.getElementById('limpar')
 let titles = document.querySelectorAll('.titles')
 let selectedTitles = []
 let titlesLabel = document.getElementById('tlabel')
-let titleDiv = document.querySelector('.tst')
+let titleDiv = document.querySelector('.title-div')
+let match_btn = document.getElementById('match')
 
 const action = ['John Wick', 'The Equalizer', 'Rocky', 'The Expendables', "Angel has Fallen"]
 
@@ -69,28 +70,19 @@ const configMovieTitles = (gen) => {
 }
 const displayMovieTitles = (genre) => {
   titleDiv.innerHTML = '';
-  if (genre == "Action") {
-    configMovieTitles(action);
-  }else if(genre == "Romance"){
-    configMovieTitles(romance)
-  } else if (genre == "Comedy") {
-    configMovieTitles(comedy);
-  } else if (genre == "Horror") {
-    configMovieTitles(horror);
-  } else if (genre == "Thriller") {
-    configMovieTitles(thriller);
-  } else if (genre == "Fantasy") {
-    configMovieTitles(fantasy);
-  } else if (genre == "Drama") {
-    configMovieTitles(drama);
-  } else if (genre == "Kids") {
-    configMovieTitles(kids);
-  } else if (genre == "Adventure") {
-    configMovieTitles(adventure);
-  } else if (genre == "Musical") {
-    configMovieTitles(musical);
+  const genres = {
+    "Action": action,
+    "Romance": romance,
+    "Comedy": comedy,
+    "Horror": horror,
+    "Thriller": thriller,
+    "Fantasy": fantasy,
+    "Drama": drama,
+    "Kids": kids,
+    "Adventure": adventure,
+    "Musical": musical,
   }
-  
+  configMovieTitles(genres[genre])
 };
 
 // Verifica se ocorreu uma mudança nos elementos de seleção
@@ -151,7 +143,8 @@ age.forEach(element => {
     checkChanges(); // Verifica as mudanças após cada clique
   });
 });
-clean.addEventListener('click', function(){
+
+cleanBtn.addEventListener('click', function(){
   selectedAge = '';
   selectedGenres = [];
   matchQuery = [];
@@ -251,53 +244,32 @@ const matchMovies = (query, space, qtd) => {
   }
 }
 
-const verifyGenre = (g) => {
+const verifyGenre = (genre) => {
   let movies = [];
 
-  if (g == "Action") {
-    movies = alt_action;
-  } else if (g == "Comedy") {
-    movies = alt_comedy;
-  } else if (g == "Romance") {
-    movies = alt_romance;
-  } else if (g == "Horror") {
-    movies = alt_horror;
-  } else if (g == "Thriller") {
-    movies = alt_thriller;
-  } else if (g == "Fantasy") {
-    movies = alt_fantasy;
-  } else if (g == "Drama") {
-    movies = alt_drama;
-  } else if (g == "Kids") {
-    movies = alt_kids;
-  } else if (g == "Adventure") {
-    movies = alt_adventure;
-  } else if (g == "Musical") {
-    movies = alt_musical;
+  const altMovies = {
+    "Action": alt_action,
+    "Romance": alt_romance,
+    "Comedy": alt_comedy,
+    "Horror": alt_horror,
+    "Thriller": alt_thriller,
+    "Fantasy": alt_fantasy,
+    "Drama": alt_drama,
+    "Kids": alt_kids,
+    "Adventure": alt_adventure,
+    "Musical": alt_musical,
   }
+  movies = altMovies[genre]
 
   if (movies.length > 0) {
     const randomIndex = Math.floor(Math.random() * movies.length);
     const movie = movies[randomIndex];
-
-    // Remove o filme selecionado do array
     movies.splice(randomIndex, 1);
-
     return movie;
   }
 }
 
-
-let match_btn = document.getElementById('match')
-
 match_btn.addEventListener('click', function(){
-  // const query = [];
-  // document.querySelectorAll('.titles.selected').forEach(e => {
-  //   query.push(e.textContent.trim())
-  // })
-  // let queryMovie = query[Math.floor(Math.random() * query.length)];
-  // console.log(queryMovie)
-  // matchMovies(queryMovie, res, 4)
   matchMovies(verifyGenre(selectedGenres), res, 1)
   matchMovies(verifyGenre(selectedGenres), res, 1)
   matchMovies(verifyGenre(selectedGenres), res, 1)
