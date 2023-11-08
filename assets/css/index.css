@@ -76,7 +76,7 @@ header {
 }
 
 
-@media only screen and (min-width: 1080px){
+@media only screen and (min-width: 1080px) {
   .container-logo {
     flex: 3;
     justify-content: flex-start !important;
@@ -444,7 +444,7 @@ header {
   border: 1px solid #fff;
 } */
 
-#textlogo{
+#textlogo {
   margin-top: 15px;
 }
 
