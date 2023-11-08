@@ -440,10 +440,6 @@ header {
   font-size: 1.4rem;
 }
 
-/* #textlogo, .logo, .container-logo{
-  border: 1px solid #fff;
-} */
-
 #textlogo {
   margin-top: 15px;
 }
@@ -476,12 +472,18 @@ header {
   justify-content: space-between;
   align-items: flex-start;
   flex-direction: column;
+  position: relative;
 }
+/* 
+.card *{
+  border: 1px solid #fff;
+} */
 
 .card-title {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;
+  max-width: 75%;
 }
 
 .card-rating {
@@ -602,13 +604,13 @@ footer a:hover {
   align-items: center;
 }
 
-.card-title svg {
+.heart-icon{
   cursor: pointer;
   width: 25px;
   height: 25px;
   margin: 5px;
   position: absolute;
-  right: 10px;
+  right: 0px;
 }
 
 .liked{

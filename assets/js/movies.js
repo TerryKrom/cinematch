@@ -29,12 +29,11 @@ const showMovies = (query, space, qtd) => {
         rating.textContent = movie.imdbRating ? `Rating: ${movie.imdbRating}` : 'No rating available';
         cardBody.appendChild(rating);
         
-        const heartIcon = `<svg xmlns="https://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16" id=${i}>
+        const heartIcon = `<svg xmlns="https://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill heart-icon" viewBox="0 0 16 16" id=${i}>
         <path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
         </svg>
       `;
-        // title.appendChild(heartIcon);
-        title.innerHTML+=heartIcon
+        cardBody.innerHTML+=heartIcon
         space.appendChild(card);
         i++
       });
