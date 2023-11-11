@@ -11,12 +11,18 @@ const logout = () => {
     });
 };
 
-if (localStorage.getItem('User') != null && localStorage.getItem('foto') == false) {
-  perfilImage.src = 'perfil.png'
-  perfilImage.classList.toggle('logged');
+if (localStorage.getItem('User') != null) {
+  if(localStorage.getItem('foto') == false){
+    perfilImage.src = 'perfil.png'
+    perfilImage.classList.toggle('logged');
+  }
   a.href = 'account.html'
   outElement.forEach(element => {
     element.style.display = 'flex';
+  })
+}else{
+  outElement.forEach(e => {
+    e.style.display = 'none'
   })
 }
 

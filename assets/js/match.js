@@ -32,7 +32,6 @@ const adventure = ['Indiana Jones', 'Jurassic Park', 'Pirates of the Caribbean',
 const musical = ['Grease', 'Les Misérables', 'Chicago', 'Moulin Rouge!', 'The Sound of Music', 'Hamilton'];
 
 
-
 const alt_action = ['Die Hard', 'Mad Max: Fury Road', 'The Dark Knight', 'Mission: Impossible', 'Taken', 'Kill Bill'];
 
 const alt_comedy = ["The 40-Year-Old Virgin", "Borat", "Talladega Nights: The Ballad of Ricky Bobby", "The Other Guys", "This Is the End", "The Nice Guys"];
@@ -102,7 +101,6 @@ const checkChanges = () => {
       });
     });
     res.innerHTML=''
-    console.log('Mudanças detectadas');
   }
 };
 
@@ -128,7 +126,6 @@ genres.forEach(element => {
     // Atualiza o array de gêneros selecionados
     selectedGenres = element.classList.contains('selected') ? [genre] : [];
 
-    console.log(selectedGenres);
     checkChanges(); // Verifica as mudanças após cada clique
   });
 });
@@ -139,7 +136,6 @@ age.forEach(element => {
     age.forEach(item => item.classList.remove('selected'));
     element.classList.add('selected');
     selectedAge = element.textContent.trim();
-    console.log(selectedAge);
     checkChanges(); // Verifica as mudanças após cada clique
   });
 });
