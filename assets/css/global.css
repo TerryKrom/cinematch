@@ -466,3 +466,18 @@ footer .center {
 footer a:hover {
     opacity: 0.8;
 }
+
+
+.label{
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.linha{
+    background-color: var(--red);
+    height: 3px;
+    border-radius: 5px;
+}

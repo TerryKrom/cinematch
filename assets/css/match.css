@@ -101,3 +101,11 @@
 .match-btn:hover{
     background-color: #960b1b;
 }
+
+.line-text{
+    /* display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start; */
+    margin: 20px;
+}
