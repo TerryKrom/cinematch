@@ -427,7 +427,7 @@ const matchMovies = (query, space, qtd) => {
       const label = document.createElement('div')
       const title = document.createElement('h2')
       const line = document.createElement('div')
-      title.textContent='Suas Recomendações'
+      title.textContent = 'Suas Recomendações'
       label.classList.add('label')
       line.classList.add('linha')
       label.appendChild(title)
@@ -489,20 +489,20 @@ const verifyGenre = (genre) => {
     "Adventure": alt_adventure,
     "Musical": alt_musical,
   }
-  movies = altMovies[genre]
 
-  if (movies.length > 0) {
-    const randomIndex = Math.floor(Math.random() * movies.length);
-    const movie = movies[randomIndex];
-    movies.splice(randomIndex, 1);
-    return movie;
-  }else{
-    window.location.reload()
-  }
+  altMovies[genre].forEach(e => {
+    movies.push(e)
+  })
+
+  const randomIndex = Math.floor(Math.random() * movies.length);
+  const movie = movies[randomIndex];
+  movies.splice(randomIndex, 1);
+  return movie;
+
 }
 
 match_btn.addEventListener('click', function () {
-  res.innerHTML=''
+  res.innerHTML = ''
   matchMovies(verifyGenre(selectedGenres), res, 1)
   matchMovies(verifyGenre(selectedGenres), res, 1)
   matchMovies(verifyGenre(selectedGenres), res, 1)

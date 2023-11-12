@@ -26,7 +26,6 @@ const signInWithGoogle = () => {
   signInWithPopup(auth, provider)
     .then(async (result) => {
       // Login bem-sucedido, redirecionar para página de sucesso ou realizar outras ações
-      // console.log("Login com Google realizado com sucesso:", result.user);
       localStorage.setItem('User', result.user.displayName);
       localStorage.setItem('UserImg', result.user.photoURL);
       window.location.href = './index.html';
