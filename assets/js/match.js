@@ -424,15 +424,16 @@ const matchMovies = (query, space, qtd) => {
       section = document.createElement('section');
       section.className = 'mt-5';
 
-      const h2 = document.createElement('h2');
-      h2.className = 'm-4 line-text';
-      h2.textContent = 'Suas Recomendações';
+      const label = document.createElement('div')
+      const title = document.createElement('h2')
+      const line = document.createElement('div')
+      title.textContent='Suas Recomendações'
+      label.classList.add('label')
+      line.classList.add('linha')
+      label.appendChild(title)
+      label.appendChild(line)
 
-      const div = document.createElement('div');
-      div.className = 'linha';
-
-      h2.appendChild(div);
-      section.appendChild(h2);
+      section.appendChild(label);
 
       space.appendChild(section);
     }
