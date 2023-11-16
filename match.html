@@ -259,27 +259,6 @@
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/loading.js"></script>
     <script src="assets/js/match.js"></script>
-    <script type="module">
-        let imgUrl = localStorage.getItem('UserImg')
-        let icon = document.getElementById('perfil')
-        let out = document.querySelectorAll('.out')
-        let a = document.getElementById('a-perfil')
-        if (!localStorage.getItem('User')) {
-            icon.src = './perfil.png'
-            out.forEach(element => {
-                element.style.display = 'none';
-            })
-            let btn_a = document.getElementById('myaccount')
-            btn_a.innerHTML = 'Login'
-            btn_a.href = './login.html'
-        }
-        if (localStorage.length != 0) {
-            let btns = document.querySelectorAll('.btn-login')
-            btns.forEach(element => {
-                element.style.display = 'none'
-            });
-        }
-    </script>
 </body>
 
 </html>

@@ -68,7 +68,7 @@ setTimeout(function () {
       }
     });
   });
-}, 2000);
+}, 2500);
 
 const addLikedMovie = (movieName) => {
   likedMovies.push(movieName)
