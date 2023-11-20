@@ -1,8 +1,18 @@
-let nome = document.getElementById('name')
-let usernameLabel = document.getElementById('username')
 let username = localStorage.getItem('User')
-usernameLabel.innerHTML+=username
 let likedDiv = document.querySelector(".liked")
+let userImg = localStorage.getItem("UserImg")
+let img = document.getElementById("userImg")
+let usernameLabel = document.getElementById("username")
+
+if(userImg){
+    img.src=userImg;
+}else{
+    img.src='../images/perfil.png'
+}
+
+if(username){
+    usernameLabel.textContent=username
+}
 
 let likedMovies = localStorage.getItem('likedMovies').split(',') || []
 let res = document.getElementById('res')

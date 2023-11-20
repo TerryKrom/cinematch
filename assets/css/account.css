@@ -1,3 +1,12 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid #fff; */
+}
+
 #res{
     display: flex;
     justify-content: space-between;
@@ -6,11 +15,6 @@
     background-color: #202020;
     border-radius: 10px;
     color: #fff;
-    width: 85%;
-    margin: 30px;
-}
-
-#username{
     margin: 30px;
 }
 
@@ -42,4 +46,21 @@
 
 .liked{
     display: none;
+    /* border: 1px solid #fff; */
+    margin: 20px;
+}
+
+.user-info{
+    /* border: 1px solid #fff; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0px 30px;
+}
+
+.user-info img{
+    width: 150px;
+    margin: 0px 0px 10px 0px;
 }
