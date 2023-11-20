@@ -475,7 +475,7 @@ header {
   position: relative;
 }
 
-.card-title {
+.card-title, .card-title-search {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;
@@ -593,19 +593,20 @@ footer a:hover {
   opacity: 0.8;
 }
 
-.card-title {
+.card-title, .card-title-search{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.heart-icon{
+.heart-icon, .heart-icon-search{
   cursor: pointer;
   width: 25px;
   height: 25px;
   margin: 5px;
   position: absolute;
   right: 0px;
+  fill: #fff;
 }
 
 .liked{

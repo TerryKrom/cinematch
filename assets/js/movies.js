@@ -2,7 +2,11 @@ const API_KEY = '12a3c56c';
 const cardsContainer = document.querySelector('#movie-list');
 const cardsTop = document.querySelector('#movie-search')
 let i = 0;
+let isSearch = false;
 const showMovies = (query, space, qtd) => {
+  if(i >= 12){
+    i = 12;
+  }
   fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${query}&type=movie&plot=full&page=1`)
 .then(response => response.json())
   .then(data => {
@@ -20,7 +24,7 @@ const showMovies = (query, space, qtd) => {
         card.appendChild(cardBody);
         
         const title = document.createElement('h2');
-        title.className = 'card-title';
+        title.className = isSearch ? 'card-title-search' : 'card-title';
         title.textContent = movie.Title;
         cardBody.appendChild(title);
         
@@ -29,7 +33,12 @@ const showMovies = (query, space, qtd) => {
         rating.textContent = movie.imdbRating ? `Rating: ${movie.imdbRating}` : 'No rating available';
         cardBody.appendChild(rating);
         
-        const heartIcon = `<svg xmlns="https://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill heart-icon" viewBox="0 0 16 16" id=${i}>
+        const heartIcon = `
+        <svg xmlns="https://www.w3.org/2000/svg"
+        width="16" height="16"
+        fill="currentColor"
+        class="bi bi-heart-fill ${isSearch ? "heart-icon-search" : "heart-icon"}"
+        viewBox="0 0 16 16" id=${i}>
         <path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
         </svg>
       `;
@@ -40,10 +49,9 @@ const showMovies = (query, space, qtd) => {
     } else {
       console.log(`No movies found for query: ${query}`);
     }
+    isSearch = false;
   })
-  .catch(error => console.error(error));
-
-  
+  .catch(error => console.error(error));  
 }
 
 const mTitlesP = [
@@ -82,14 +90,21 @@ const randMovie = (arr) => {
   return arr[randomIndex];
 };
 
-showMovies(randMovie(mTitlesP), cardsContainer, 2);
-showMovies(randMovie(mTitlesP), cardsContainer, 2);
-showMovies(randMovie(mTitlesP), cardsContainer, 2)
-showMovies(randMovie(mTitlesS), cardsContainer, 1);
-showMovies(randMovie(mTitlesS), cardsContainer, 1);
-showMovies(randMovie(mTitlesP), cardsContainer, 2);
-showMovies(randMovie(mTitlesS), cardsContainer, 1);
-showMovies(randMovie(mTitlesS), cardsContainer, 1);
+document.addEventListener('DOMContentLoaded', () => {
+  showMovies(randMovie(mTitlesP), cardsContainer, 2);
+  showMovies(randMovie(mTitlesP), cardsContainer, 2);
+  showMovies(randMovie(mTitlesP), cardsContainer, 2)
+  showMovies(randMovie(mTitlesS), cardsContainer, 1);
+  showMovies(randMovie(mTitlesS), cardsContainer, 1);
+  showMovies(randMovie(mTitlesP), cardsContainer, 2);
+  showMovies(randMovie(mTitlesS), cardsContainer, 1);
+  showMovies(randMovie(mTitlesS), cardsContainer, 1);
+  
+  setTimeout(function () {
+    activeHearts()
+  }, 2500);
+
+})
 
 const btn_search = document.getElementById('btn-search')
 const input_search = document.getElementById('search-input')
@@ -97,14 +112,15 @@ const input_search = document.getElementById('search-input')
 btn_search.addEventListener("click", function(){
   const query = input_search.value
   cardsTop.innerHTML=''
+  isSearch=true;
   showMovies(query, cardsTop, 4)
+  setTimeout( () => {
+    activeHearts()
+  }, 1500)
 })
 
 input_search.addEventListener('keydown', function(event) {
   if (event.key === 'Enter') {
-    event.preventDefault(); // Impede o comportamento padrão de enviar o formulário
-    const query = input_search.value;
-    cardsTop.innerHTML=''
-    showMovies(query, cardsTop, 4);
+    btn_search.click()  
   }
 });

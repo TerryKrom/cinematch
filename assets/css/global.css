@@ -9,7 +9,9 @@
 }
 
 :root{
-    --red: #e6051f; 
+    --red: #e6051f;
+    --dark-red: #b10e21;
+    --darker-red: #610909;
 }
 
 html {
